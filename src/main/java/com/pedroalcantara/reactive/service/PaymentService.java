@@ -25,7 +25,7 @@ public class PaymentService {
         entity.setConsentId(UUID.randomUUID().toString());
         entity.setCreationDateTime(ZonedDateTime.now());
         entity.setStatusUpdateDateTime(ZonedDateTime.now());
-        entity.setProxy("PDNG");
+        entity.setStatus("PDNG");
         entity.setRejectionReason("DALE");
     }
 }

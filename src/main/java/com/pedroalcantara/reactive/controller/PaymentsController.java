@@ -9,12 +9,15 @@ import com.pedroalcantara.reactive.web.rest.model.PaymentDTO;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
+
+import javax.validation.Valid;
 
 
 @RestController
@@ -30,9 +33,9 @@ public class PaymentsController implements PaymentDoc {
     @PostMapping
     public Mono<ResponseEntity<PaymentEntity>> createPayment(
             @Parameter(schema = @Schema(implementation = PaymentDTO.class))
-            @RequestBody PaymentDTO paymentDTO
+            @RequestBody @Valid PaymentDTO paymentDTO
     ) {
-        return paymentService.save(paymentMapper.toEntity(paymentDTO)).map(paymentEntity -> ResponseEntity.ok(paymentEntity));
+        return paymentService.save(paymentMapper.toEntity(paymentDTO)).map(p -> ResponseEntity.status(HttpStatus.CREATED).body(p));
     }
 
 }

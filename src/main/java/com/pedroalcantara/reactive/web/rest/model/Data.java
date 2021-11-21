@@ -1,6 +1,8 @@
 package com.pedroalcantara.reactive.web.rest.model;
 
-public class Data{
+public class Data {
+
+
     public String localInstrument;
     public Payment payment;
     public CreditorAccount creditorAccount;

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@OpenAPIDefinition(info = @Info(title = "API Payments Pedro", version = "v1"))
+@OpenAPIDefinition(info = @Info(title = "API Payments", version = "v1"))
 public class OpenAPIConfig {
 
     @Bean
@@ -38,7 +38,7 @@ public class OpenAPIConfig {
 
     private ExternalDocumentation getExternalDocs() {
         return new ExternalDocumentation()
-                .description("Mais informações sobre: github.com/pedroalcantara9568")
+                .description("Mais informações:")
                 .url("https://www.github.com/pedroalcantara9568");
     }
 }

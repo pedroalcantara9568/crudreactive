@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.6'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.5.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
 }
 
 group = 'com.pedroalcantara'
@@ -9,33 +9,41 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 ext {
-	set('lombokVersion', "1.18.8")
-	set('springCloudVersion', "Hoxton.SR9")
+    set('springCloudVersion', "Hoxton.SR9")
+    set('lombokVersion', "1.18.8")
+    set('mapstructVersion', "1.4.2.Final")
+    set('lombokMapstructBindingVersion', "0.2.0")
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	implementation "io.swagger.core.v3:swagger-annotations:2.1.4"
-	compileOnly "org.projectlombok:lombok:${lombokVersion}"
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	// Basicas
-	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation "io.swagger.core.v3:swagger-annotations:2.1.4"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // Basicas
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}",
+            "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
+    annotationProcessor "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
 
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation 'org.springdoc:springdoc-openapi-webflux-ui:1.4.8'
-	implementation 'io.github.openfeign:feign-httpclient:10.10.1'
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+    implementation 'org.everit.json:org.everit.json.schema:1.5.1'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springdoc:springdoc-openapi-webflux-ui:1.4.8'
+    implementation 'io.github.openfeign:feign-httpclient:10.10.1'
 
-	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 
 
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

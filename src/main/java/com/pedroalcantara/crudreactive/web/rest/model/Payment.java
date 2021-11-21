@@ -1,4 +1,4 @@
-package com.pedroalcantara.crudreactive.rest.model;
+package com.pedroalcantara.crudreactive.web.rest.model;
 
 public class Payment{
     public String amount;

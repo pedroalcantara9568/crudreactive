@@ -1,10 +1,10 @@
-package com.pedroalcantara.crudreactive.rest.mapper;
+package com.pedroalcantara.crudreactive.web.rest.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.stereotype.Component;
 import com.pedroalcantara.crudreactive.base.PaymentEntity;
-import com.pedroalcantara.crudreactive.rest.model.PaymentDTO;
+import com.pedroalcantara.crudreactive.web.rest.model.PaymentDTO;
 
 import static org.mapstruct.NullValueCheckStrategy.ALWAYS;
 import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
